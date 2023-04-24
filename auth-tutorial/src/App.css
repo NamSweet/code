@@ -1,0 +1,115 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  margin-left: 20px;
+
+}
+
+.logo {
+  height: 112.92700958251953px;
+  width: 168.27188110351562px;
+  left: 1.7281341552734375px;
+  top: 0px;
+  border-radius: 0px;
+  
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+
+.submit{
+height: 40px;
+width: 162px;
+left: 215px;
+top: 511px;
+border-radius: 8px;
+padding: 10px 24px 10px 24px;
+background-color: orange;
+color: #fff;
+text-align: center;
+border: none;
+font-family: 'Nunito', sans-serif;
+
+}
+.submit:hover {
+  background-color: orangered;
+  border: none;
+}
+
+input[type="email"] {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: left;
+  margin-bottom: 20px;
+  margin-top: 100px;
+  width: 400px;
+  font-family: 'Nunito', sans-serif;
+
+}
+input[type="password"] {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: left;
+  margin-bottom: 20px;
+  width: 400px;
+  font-family: 'Nunito', sans-serif;
+
+}
+.App .card .input-email span{
+  font-size: 16px;
+  margin-bottom: 5px;
+  display: inline-block;
+  color: #607db8;
+  letter-spacing: 1px;
+}
+.avatar{
+
+    position: relative;
+    width: 100%;
+    height: 50%;
+}
+.avatar img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
