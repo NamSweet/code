@@ -4,15 +4,20 @@
   font-weight: 400;
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
-
-
+.avatar2{
+  position: absolute;
+  width: 61%;
+  height:730px;
+  left: 592px;
+  top: 0px;
+  background: #FFFFFF;
+}
 a {
   font-weight: 500;
   color: #646cff;
@@ -28,41 +33,45 @@ body {
   place-items: start;
   min-width: 320px;
   min-height: 100vh;
+  background: #f7f7f7;
 }
-
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
 }
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
+.anh2{
+  position: absolute;
+  width: 711px;
+  height: 560px;
+  left: 43px;
+  top: 97px;
 }
-button:hover {
-  border-color: #646cff;
+.hethong{
+position: absolute;
+width: 200px;
+height: 54px;
+left: 454px;
+top: 350px;
+font-family: 'Nunito', sans-serif;
+font-style: normal;
+font-weight: 400;
+font-size: 34px;
+line-height: 51px;
+text-align: center;
+color: #FF7506;
 }
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.quanly{
+  position: absolute;
+  width: 400px;
+  height: 54px;
+  left: 454px;
+  top: 396px;  
+  font-family: 'Nunito', sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 36px;
+  line-height: 54px;
+  text-align: center;
+  color: #FF7506;
+  
 }

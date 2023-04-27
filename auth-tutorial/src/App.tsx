@@ -1,4 +1,5 @@
-
+import ForgotPassword from './routes/forgotPassword' 
+import PasswordReset from './routes/passwordReset'
 import { useContext, useEffect } from 'react'
 import { Routes , Route, useNavigate } from 'react-router-dom' 
 import { AuthContext } from './context/auth-context'
@@ -10,10 +11,10 @@ function App() {
   const { currentUser } = useContext(AuthContext)
   const navigate = useNavigate()
 
-
+  // NOTE: console log for testing purposes
   console.log('User:', !!currentUser);
 
-
+  // Check if currentUser exists on initial render
   useEffect(() => {
     if (currentUser) {
       navigate('/profile')
@@ -28,6 +29,14 @@ function App() {
           <Profile />
         </RequireAuth>}
       />
+      <Route 
+          path="forgotPassword" 
+          element={<ForgotPassword />} 
+        />
+         <Route 
+          path="passwordReset" 
+          element={<PasswordReset />} 
+        />
     </Routes>
   )
 }

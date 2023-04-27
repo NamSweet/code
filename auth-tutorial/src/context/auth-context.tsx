@@ -26,8 +26,6 @@ export const AuthProvider = ({ children }: Props) => {
     });
     return unsubscribe
   }, [setCurrentUser]);
-
-
   const signOut = () => {
     SignOutUser()
     setCurrentUser(null)

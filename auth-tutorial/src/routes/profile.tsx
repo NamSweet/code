@@ -6,9 +6,8 @@ function Profile() {
   const { currentUser, signOut } = useContext(AuthContext)
   
   return(
-   
     <div>
-      <h3>Welcome! {currentUser?.email}</h3>
+      <h3 className='tx5'>Xin chào {currentUser?.email}</h3>
       <p>Sign In Status: {currentUser && 'active'}</p>
       <button onClick={signOut}>Sign Out</button>
     </div>
