@@ -8,6 +8,7 @@ import{Icon} from 'react-icons-kit'
 import {eyeOff} from 'react-icons-kit/feather/eyeOff'
 import {eye} from 'react-icons-kit/feather/eye'
 import {notification} from 'react-icons-kit/icomoon/notification'
+
 const defaultFormFields = {
   email: '',
   password: '',

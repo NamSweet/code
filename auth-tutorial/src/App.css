@@ -395,6 +395,386 @@ color: #37474F;
   flex-direction: column;
   justify-content: flex-end;
 }
+.tx6{
+position: absolute;
+width: 47px;
+height: 18px;
+right: 83px;
+top: 24px;
+font-family: 'Nunito';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 18px;
+color: #7E7D88;
+
+}
+.tx7{
+  position: absolute;
+  width: 130px;
+  height: 24px;
+  right: 0px;
+  top: 42px;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  color: #535261;
+}
+.SideMenu{
+position: absolute;
+width: 200px;
+height: 720px;
+left: 0px;
+top: 0px;
+background: #FFFFFF;
+box-shadow: 0px 4px 6px rgba(219, 219, 219, 0.5);
+border-radius: 16px 0px 0px 16px;
+}
+.signout{
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 12px;
+gap: 12px;
+position: absolute;
+width: 176px;
+height: 48px;
+left: 12px;
+top: 650px;
+background: #FFF2E7;
+border-radius: 8px;
+font-family: 'Nunito';
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 24px;
+color: #FF7506;
+flex: none;
+order: 1;
+flex-grow: 0;
+border: none;
+}
+.thongtincanhan{
+  position: absolute;
+width: 1240px;
+height: 88px;
+left: 224px;
+top: 24px;
+}
+.avt1{
+  position: absolute;
+width: 40px;
+height: 40px;
+right: 132px;
+top: 24px;
+
+background: url(.jpg);
+border-radius: 48px;
+}
 .tx5{
+  position: absolute;
+  top: 29px;
+  right: 1048px;
+  width: 168px;
+height: 30px;
+font-family: 'Nunito';
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 30px;
+color: #FF9138;
+flex: none;
+order: 1;
+flex-grow: 0;
+}
+.logomini{
+position: absolute;
+width: 80px;
+height: 64px;
+left: 60px;
+top: 32px;
+}
+.menu{
+position: absolute;
+width: 200px;
+height: 48px;
+left: 0px;
+top: 150px;
+background: #FFFFFF;
+font-family: 'Nunito';
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 24px;
+color: #7E7D88;
+flex: none;
+order: 1;
+flex-grow: 0;
+}
+.chitietthongtin{
+position: absolute;
+width: 1200px;
+height: 397px;
+left: 224px;
+top: 168px;
+background: #FFFFFF;
+box-shadow: 0px 2px 6px rgba(219, 219, 219, 0.5);
+border-radius: 12px;
+}
+.avt2{
+  position: absolute;
+width: 248px;
+height: 248px;
+left: 24px;
+top: 40px;
+background: url(.jpg);
+border-radius: 318px;
+}
+.tx8{
+  position: absolute;
+  width: 190px;
+  height: 36px;
+  left: 55px;
+  top: 307px;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 36px;
+  display: flex;
+  align-items: center;
+  color: #282739;
+}
+#tenuser{
+  display: flex;
+flex-direction: row;
+align-items: center;
+padding: 12px 16px;
+gap: 10px;
+position: absolute;
+width: 380px;
+height: 30px;
+left: 296px;
+top: 72px;
+background: #EAEAEC;
+border-radius: 6px;
+border: none;
+}
+.tenuser{
+position: absolute;
+width: 200px;
+height: 24px;
+font-family: 'Nunito';
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 24px;
 color: #282739;
+flex: none;
+order: 0;
+flex-grow: 0;
+top:40px;
+left: 296px;
+}
+#sdt{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 12px 16px;
+  gap: 10px;
+  position: absolute;
+  width: 380px;
+  height: 30px;
+  left: 296px;
+  top: 172px;
+  background: #EAEAEC;
+  border-radius: 6px;
+  border: none;
+}
+.sdt{
+  position: absolute;
+  top:240px;
+  left: 296px;
+  width: 120px;
+height: 24px;
+font-family: 'Nunito';
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 24px;
+color: #282739;
+flex: none;
+order: 0;
+flex-grow: 0;
+}
+#email{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 12px 16px;
+  gap: 10px;
+  position: absolute;
+  width: 380px;
+  height: 30px;
+  left: 296px;
+  top: 272px;
+  background: #EAEAEC;
+  border-radius: 6px;
+  border: none;
+}
+.email{
+  position: absolute;
+  top:140px;
+  left: 296px;
+  width: 120px;
+height: 24px;
+font-family: 'Nunito';
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 24px;
+color: #282739;
+flex: none;
+order: 0;
+flex-grow: 0;
+}
+#tenlogin{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 12px 16px;
+  gap: 10px;
+  position: absolute;
+  width: 380px;
+  height: 30px;
+  left: 750px;
+  top: 72px;
+  background: #EAEAEC;
+  border-radius: 6px;
+  border: none;
+}
+.tenlogin{
+  position: absolute;
+  top:40px;
+  left: 750px;
+  width: 120px;
+height: 24px;
+font-family: 'Nunito';
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 24px;
+color: #282739;
+flex: none;
+order: 0;
+flex-grow: 0;
+}
+#matkhau{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 12px 16px;
+  gap: 10px;
+  position: absolute;
+  width: 380px;
+  height: 30px;
+  left: 750px;
+  top: 172px;
+  background: #EAEAEC;
+  border-radius: 6px;
+  border: none;
+}
+.matkhau{
+  position: absolute;
+  top: 140px;
+  left: 750px;
+  width: 120px;
+height: 24px;
+font-family: 'Nunito';
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 24px;
+color: #282739;
+flex: none;
+order: 0;
+flex-grow: 0;
+}
+#vaitro{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 12px 16px;
+  gap: 10px;
+  position: absolute;
+  width: 380px;
+  height: 30px;
+  left: 750px;
+  top: 272px;
+  background: #EAEAEC;
+  border-radius: 6px;
+  border: none;
+}
+.vaitro{
+  position: absolute;
+  top: 240px;
+  left: 750px;
+  width: 120px;
+height: 24px;
+font-family: 'Nunito';
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 24px;
+color: #282739;
+flex: none;
+order: 0;
+flex-grow: 0;
+}
+.thayavt{
+  box-sizing: border-box;
+  border-radius: 25px;
+position: absolute;
+width: 45px;
+height: 45px;
+left: 195px;
+top: 246px;
+background: #FF7506;
+border: 2px solid #FFFFFF;
+}
+.btnthongbao{
+  position: absolute;
+width: 32px;
+height: 32px;
+right: 190px;
+top: 28px;
+background: #FFF2E7;
+border-radius: 32px;
+border: none;
+}
+.bell{
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: 6px;
+  top: 5px;
+  color:  #FFAC6A;
+}
+.camera{
+  position: absolute;
+width: 30px;
+height: 30px;
+left: 6px;
+top: 5.5px;
+color: white;
+}
+.logout{
+  position: static;
+  width: 30px;
+  height: 30px;
+  left: 6px;
+  top: 5.5px;
+  color: #FF7506;;
 }

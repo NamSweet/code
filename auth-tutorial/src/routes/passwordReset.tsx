@@ -1,5 +1,5 @@
 import {eyeOff} from 'react-icons-kit/feather/eyeOff'
-import { ChangeEvent, FormEvent, useState } from 'react'
+import { useState } from 'react'
 import{Icon} from 'react-icons-kit'
 
 import {eye} from 'react-icons-kit/feather/eye'
