@@ -1,27 +1,18 @@
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import MenuBar from "./menu_bar";
+import TopBar from "./top_bar";
+import { ArrowDownOutlined, ArrowUpOutlined, CalendarOutlined, CarryOutOutlined, ProfileOutlined, UserOutlined } from "@ant-design/icons";
+import WaveChart from "./bieudo";
+import "../css/Dashboard.css"
+import RightBar from "./right_bar";
 
-import CalendarOutlined from '@ant-design/icons/lib/icons/CalendarOutlined';
-import CarryOutOutlined from '@ant-design/icons/lib/icons/CarryOutOutlined';
-import MenuBar from '../../components/menu_bar';
-import TopBar from '../../components/top_bar';
-import '../../css/Dashboard.css'
-import ArrowUpOutlined from '@ant-design/icons/lib/icons/ArrowUpOutlined';
-import ArrowDownOutlined from '@ant-design/icons/lib/icons/ArrowDownOutlined';
-import UserOutlined from '@ant-design/icons/lib/icons/UserOutlined';
-import ProfileOutlined from '@ant-design/icons/lib/icons/ProfileOutlined';
-import WaveChart  from '../../components/bieudo';
-import {  useNavigate } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import RightBar from '../../components/right_bar';
-
-
-
-
-function Dashboard() {
+function Tuan() {
   const [selectedOption] = useState('');
   const navigate = useNavigate();
 
-  const data = [2000,3500, 4221, 3300]
-  const categories = ['1', '13', '19', '31']
+  const data = [2000, 3500, 4221, 3300]
+  const categories = ["Tuần 1", "Tuần 2", "Tuần 3", "Tuần 4"]
 
   const handleOptionChange = (event: any) => {
     const selectedValue = event.target.value;
@@ -34,7 +25,7 @@ function Dashboard() {
   }, [selectedOption])
 
   return(
-    <>
+    <div>
       <MenuBar/>
       <TopBar breadCrumb='Dashboard'/>
       <span className='bieudocapso'>Biểu đồ cấp số</span>
@@ -102,18 +93,18 @@ function Dashboard() {
     </div>
     <div className='bangthongkedulieu'>
    <div className='topbieudo'>
-   <span className='txt1'>Bảng thống kê theo ngày</span>
-   <span className='txt3'>Xem theo <select   className="time txt-selectbox" defaultValue="ngay" onChange={handleOptionChange}>
-        <option className="txt-selectbox" value="ngay">Ngày</option>
-        <option className="txt-selectbox" value="tuan">Tuần</option>
-        <option className="txt-selectbox" value="thang">Tháng</option>
+   <span className='txt1'>Bảng thống kê theo tuần</span>
+   <span className='txt3'>Xem theo  <select  className="time txt-selectbox" defaultValue="/dashboard/tuan" onChange={handleOptionChange}>
+        <option className="txt-selectbox" value="/dashboard">Ngày</option>
+        <option className="txt-selectbox" value="/dashboard/tuan">Tuần</option>
+        <option className="txt-selectbox" value="/dashboard/thang">Tháng</option>
       </select></span>
    </div>
       <span className='txt2'>Tháng 11/2021</span>
       <WaveChart data={data} categories={categories}/>
       </div>
       <RightBar/> 
-    </>
+    </div>
   )
 }
-export default Dashboard
+export default Tuan

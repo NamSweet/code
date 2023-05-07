@@ -2,7 +2,7 @@
 import { ChangeEvent, FormEvent, useState } from 'react'
 import { signInUser } from '../firebase/firebase'
 import { useNavigate } from 'react-router-dom'
-import '.././App.css'
+import '../css/App.css'
 import { Link } from 'react-router-dom';
 import{Icon} from 'react-icons-kit'
 import {eyeOff} from 'react-icons-kit/feather/eyeOff'

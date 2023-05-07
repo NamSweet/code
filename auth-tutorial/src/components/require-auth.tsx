@@ -8,8 +8,6 @@ function RequireAuth({ children }: { children:JSX.Element }) {
   let location = useLocation()
 
   if (!currentUser) {
-    // Redirect the user to the home page.
-    // Please! Close the mustache {{}}
     return <Navigate to="/" state={ { from: location } } replace />;
   }
 

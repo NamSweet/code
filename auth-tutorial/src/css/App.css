@@ -396,10 +396,11 @@ color: #37474F;
   justify-content: flex-end;
 }
 .tx6{
+  z-index: 2;
 position: absolute;
 width: 47px;
 height: 18px;
-right: 83px;
+right: 148px;
 top: 24px;
 font-family: 'Nunito';
 font-style: normal;
@@ -410,10 +411,11 @@ color: #7E7D88;
 
 }
 .tx7{
+  z-index: 2;
   position: absolute;
   width: 130px;
   height: 24px;
-  right: 0px;
+  right: 65px;
   top: 42px;
   font-family: 'Nunito';
   font-style: normal;
@@ -425,7 +427,7 @@ color: #7E7D88;
 .SideMenu{
 position: absolute;
 width: 200px;
-height: 720px;
+height: 810px;
 left: 0px;
 top: 0px;
 background: #FFFFFF;
@@ -442,7 +444,7 @@ position: absolute;
 width: 176px;
 height: 48px;
 left: 12px;
-top: 650px;
+top: 732px;
 background: #FFF2E7;
 border-radius: 8px;
 font-family: 'Nunito';
@@ -464,10 +466,11 @@ left: 224px;
 top: 24px;
 }
 .avt1{
+  z-index: 2;
   position: absolute;
 width: 40px;
 height: 40px;
-right: 132px;
+right: 202px;
 top: 24px;
 
 background: url(.jpg);
@@ -475,9 +478,8 @@ border-radius: 48px;
 }
 .tx5{
   position: absolute;
-  top: 29px;
-  right: 1048px;
-  width: 168px;
+  top: 29px;  
+  width: auto;
 height: 30px;
 font-family: 'Nunito';
 font-style: normal;
@@ -748,11 +750,12 @@ border: 2px solid #FFFFFF;
   position: absolute;
 width: 32px;
 height: 32px;
-right: 190px;
+right: 260px;
 top: 28px;
 background: #FFF2E7;
 border-radius: 32px;
 border: none;
+z-index: 2;
 }
 .bell{
   position: absolute;

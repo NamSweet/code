@@ -12,7 +12,8 @@ import Dichvu from './Pages/Dichvu'
 import Capso from './Pages/Capso'
 import Baocao from './Pages/Baocao'
 import Caidathethong from './Pages/Caidathethong'
-
+import Tuan from './components/tuan'
+import Thang from './components/thang'
 function App() {
   const { currentUser } = useContext(AuthContext)
   const navigate = useNavigate()
@@ -25,7 +26,6 @@ function App() {
     
   return (
     <Routes>
-      
       <Route index element={<Home />} />
       <Route path="profile" element={
         <RequireAuth>
@@ -43,6 +43,15 @@ function App() {
        <Route 
           path='dashboard' 
           element={<Dashboard/>}
+          />
+
+          <Route 
+          path='dashboard/tuan' 
+          element={<Tuan/>}
+          />
+            <Route 
+          path='dashboard/thang' 
+          element={<Thang/>}
           />
           <Route 
           path='Thietbi' 
