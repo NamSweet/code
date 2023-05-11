@@ -11,9 +11,13 @@
   },
   "dependencies": {
     "@ant-design/icons": "^5.0.1",
+    "@emotion/react": "^11.11.0",
+    "@mantine/core": "^6.0.10",
+    "@mantine/hooks": "^6.0.10",
     "antd": "^5.4.6",
     "apexcharts": "^3.40.0",
     "firebase": "^9.20.0",
+    "mantine-datatable": "^2.4.16",
     "react": "^18.2.0",
     "react-calendar": "^4.2.1",
     "react-dom": "^18.2.0",

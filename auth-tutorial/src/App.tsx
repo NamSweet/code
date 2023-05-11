@@ -14,6 +14,7 @@ import Baocao from './Pages/Baocao'
 import Caidathethong from './Pages/Caidathethong'
 import Tuan from './components/tuan'
 import Thang from './components/thang'
+import Themthietbi from './Pages/Thietbi/themthietbi'
 function App() {
   const { currentUser } = useContext(AuthContext)
   const navigate = useNavigate()
@@ -35,6 +36,10 @@ function App() {
       <Route 
           path="forgotPassword" 
           element={<ForgotPassword />} 
+        />
+        <Route 
+          path="themthietbi" 
+          element={<Themthietbi />} 
         />
          <Route 
           path="passwordReset" 

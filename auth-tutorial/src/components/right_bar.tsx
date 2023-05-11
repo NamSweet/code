@@ -69,7 +69,7 @@ const RightBar = () => {
                </Space>              
                <Space size={4}>
                  <Badge color="#F178B6" />
-                 <span className="txt6">Ngưng hoạt động</span>
+                 <span className="txt6">Bỏ qua</span>
                     <span className="txt5" style={{color: "#35C75A"}}>32</span>
                </Space>                 
                  </Space>
