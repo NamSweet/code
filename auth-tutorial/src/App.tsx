@@ -15,6 +15,11 @@ import Caidathethong from './Pages/Caidathethong'
 import Tuan from './components/tuan'
 import Thang from './components/thang'
 import Themthietbi from './Pages/Thietbi/themthietbi'
+import Chitiet from './Pages/Thietbi/chitiet'
+import Capnhat from './Pages/Thietbi/capnhat'
+import Themdichvu from './Pages/Dichvu/themdichvu'
+import Chitietdichvu from './Pages/Dichvu/chitietdichvu'
+import Capnhatdichvu from './Pages/Dichvu/capnhatdichvu'
 function App() {
   const { currentUser } = useContext(AuthContext)
   const navigate = useNavigate()
@@ -38,7 +43,7 @@ function App() {
           element={<ForgotPassword />} 
         />
         <Route 
-          path="themthietbi" 
+          path="/themthietbi" 
           element={<Themthietbi />} 
         />
          <Route 
@@ -59,12 +64,32 @@ function App() {
           element={<Thang/>}
           />
           <Route 
+          path='/Chitietthietbi' 
+          element={<Chitiet/>}
+          />
+          <Route 
+          path='/Capnhatthietbi' 
+          element={<Capnhat/>}
+          />
+           <Route 
           path='Thietbi' 
           element={<Thietbi/>}
           />
           <Route 
           path='Dichvu' 
           element={<Dichvu/>}
+          />
+          <Route 
+          path='/themdichvu' 
+          element={<Themdichvu/>}
+          />
+           <Route 
+          path='/chitietdichvu' 
+          element={<Chitietdichvu/>}
+          />
+           <Route 
+          path='/capnhatdichvu' 
+          element={<Capnhatdichvu/>}
           />
           <Route 
           path='Capso' 

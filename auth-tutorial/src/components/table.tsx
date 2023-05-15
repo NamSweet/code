@@ -81,7 +81,7 @@ export const TableThietBi = () => {
          
         { accessor: '',
         render: ({ chitiet }) => (
-            <Link to={''}>
+            <Link to={'/chitietthietbi'}>
             <Text className='chitiet1'  color='#4277FF'>
                {chitiet.slice(0,8)}
             </Text>
@@ -90,7 +90,7 @@ export const TableThietBi = () => {
          },
          { accessor: '',
           render: ({ capnhat }) => (
-            <Link to={''}>
+            <Link to={'/capnhatthietbi'}>
            <Text className='chitiet1' color='#4277FF' >
           {capnhat.slice(0,8)}
             </Text>

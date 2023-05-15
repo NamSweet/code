@@ -1,0 +1,278 @@
+.timedichvu{
+    box-sizing: border-box;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+padding: 10px 12px;
+gap: 24px;
+width: 300px;
+height: 44px;
+left: 224px;
+top: 184px;
+background: #FFFFFF;
+border: 1.5px solid #D4D4D7;
+border-radius: 8px;
+}
+.datepicker{
+    box-sizing: border-box;
+    padding: 10px 12px;
+    width: 150px;
+    height: 44px;
+    background: #FFFFFF;
+    border: 1.5px solid #D4D4D7;
+    border-radius: 8px;
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #A9A9B0;
+    text-align: center;
+    
+}
+.cc{
+    display: flex;
+flex-direction: row;
+gap: 20px;
+}
+.cc1{
+    position: absolute;
+    left: 643px;
+    top: 196px;
+    color: #535261;
+    font-size: 10px;
+}
+.cctv{
+    position: absolute;
+    left: 265px;
+    top: 43px;
+    color: #535261;
+    font-size: 10px;
+}
+#nhapdulieu{
+    box-sizing: border-box;
+padding: 10px 270px 10px 12px;
+width: 540px;
+height: 44px;
+background: #FFFFFF;
+border: 1.5px solid #D4D4D7;
+border-radius: 8px;
+font-family: 'Nunito';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+color: black;
+}
+#mota{
+    box-sizing: border-box;
+padding: 10px 270px 10px 12px;
+width: 554px;
+height: 132px;
+background: #FFFFFF;
+border: 1.5px solid #D4D4D7;
+border-radius: 8px;
+font-family: 'Nunito';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+color: black;
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+}
+.txtquytac{
+  
+        width: 100%;
+        height: 30px;
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
+    color: #FF7506;
+}
+.cce{
+    font-family: 'Nunito';
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 24px;
+color: #282739;
+}
+
+#sott{
+width: 61px;
+height: 44px;;
+background: #FFFFFF;
+border: 1.5px solid #D4D4D7;
+border-radius: 8px;
+margin-left: 15px;
+font-family: 'Nunito';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+color: #535261;
+text-align: center;
+margin-right: 12px;
+}
+#sott1{
+    width: 61px;
+    height: 44px;;
+    background: #FFFFFF;
+    border: 1.5px solid #D4D4D7;
+    border-radius: 8px;
+    margin-left: 90px;
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #535261;
+    text-align: center;
+   
+    }
+    .ttdv{
+        position: absolute;
+        width: 370px;
+        height: 606px;
+        left: 224px;
+        top: 172px;
+        background: #FFFFFF;
+        box-shadow: 2px 2px 8px rgba(232, 239, 244, 0.8);
+        border-radius: 12px;
+    }
+    .txtctdv1{
+        font-family: 'Nunito';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        color: #535261;
+        margin-left: 29px;
+        
+    }
+    .txtctdv2{
+        font-family: 'Nunito';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        color: #535261;
+        margin-left: 22px;
+        
+        
+    }
+    .txtctdv3{
+        font-family: 'Nunito';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        color: #535261;
+        margin-left: 64px;
+        
+    }
+    .dvtttxt{
+        font-family: 'Nunito';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 30px;
+        color: #FF7506;
+        margin-top: 16px;
+    }
+    .meme{
+        margin-top: 16px;
+    }
+    .bangchitietne{
+
+        position: absolute;
+        width: 718px;
+        height: 606px;
+        left: 618px;
+        top: 172px;
+        background: #FFFFFF;
+        box-shadow: 2px 2px 8px rgba(232, 239, 244, 0.8);
+        border-radius: 12px;
+    }
+    .txttb10{    
+        font-family: 'Nunito';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 24px;
+        color: #282739;
+
+    }
+    .trangthaidichvu20{
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 12px;
+        gap: 24px;
+        width: 160px;
+        height: 44.15px;
+        background: #FFFFFF;
+        border: 1.5px solid #D4D4D7;
+        border-radius: 8px;
+        font-family: 'Nunito';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        color: #535261;
+
+    }
+    .txtchontime{
+        font-family: 'Nunito';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 24px;
+        color: #282739;
+    }
+    #timkiemdv{
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 12px;
+        gap: 24px;
+        width: 180px;
+        height: 44.15px;
+        background: #FFFFFF;
+        border: 1.5px solid #D4D4D7;
+        border-radius: 8px;
+        font-family: 'Nunito';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        color: #535261;
+
+    }
+    .timem{
+            position: absolute;
+            left: 600px;
+            top: 38px; 
+    }
+    
+    input[type="checkbox"] {
+       
+        width: 15px;
+        height: 15px;
+        border: 1.5px solid #4277FF;
+      }
+      input[type="checkbox"]:focus {
+        /* Đổi kiểu dáng khi checkbox được focus */
+        /* ví dụ: */
+        outline: 2px solid#4277FF;
+      }
+      
