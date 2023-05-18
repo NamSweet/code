@@ -12,44 +12,52 @@ function Profile() {
       <MenuBar/>
       <div className='chitietthongtin'>
         <img className='avt2' src="../src/img/avatar2.png"/>
-        <button className='thayavt'><span className='camera'><HiOutlineCamera size={30}/></span></button>
+        <input id="imageFile" type="file" accept="image/*" className='thayavt' style={{display: "none"}}/>
+        <label htmlFor="imageFile" className='thayavt'><span className='camera'><HiOutlineCamera size={30}/></span></label>
+        
         <span className='tx8'>Lê Quỳnh Ái Vân</span>
         <div className=''>
            <span className='tenuser'>Tên người dùng</span>
             <input
              id='tenuser'
               required
-              placeholder="Lê Quỳnh Ái Vân"
+              disabled
+              defaultValue="Lê Quỳnh Ái Vân"        
             />
              <span className='sdt'>Số điện thoại</span>
             <input
              id='sdt'
               required
-              placeholder="0767375921"
+              disabled
+              defaultValue="0767375921"
             />
              <span className='email'>Email:</span>
             <input
              id='email'
               required
-              placeholder="adminSSO1@domain.com"
+              disabled
+              defaultValue="adminSSO1@domain.com"
             />
              <span className='tenlogin'>Tên đăng nhập</span>
             <input
              id='tenlogin'
               required
-              placeholder="lequynhaivan01"
+              disabled
+              defaultValue="lequynhaivan01"
             />
              <span className='matkhau'>Mật khẩu</span>
             <input
              id='matkhau'
               required
-              placeholder="311940211"
+              disabled
+              defaultValue="311940211"
             />
              <span className='vaitro'>Vai trò:</span>
             <input
              id='vaitro'
               required
-              placeholder="Kế toán"
+              disabled
+              defaultValue="Kế toán"
             />
           </div >
           

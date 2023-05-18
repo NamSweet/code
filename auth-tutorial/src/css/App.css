@@ -44,12 +44,16 @@ border: none;
 }
 
 #username {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
   font-size: 18px;
+  line-height: 27px;
  box-sizing: border-box;
 display: flex;
 flex-direction: row;
 align-items: center;
-padding: 10px 270px 10px 12px;
+padding: 10px 10px 10px 12px;
 gap: 10px;
 height: 44px;
 background: #FFFFFF;
@@ -66,22 +70,41 @@ flex-grow: 0;
   flex-direction: column;
   justify-content: flex-end;
 }
-#pass{
-  box-sizing: border-box;
-  padding: 10px 16px 10px 12px;
-  gap: 10px;
-  width: 400px;
-  height: 44px;
-  background: #FFFFFF;
-  border: 1.5px solid #D4D4D7;
-  border-radius: 8px;
-  flex: none;
-  order: 1;
-  flex-grow: 0;
-  font-size: 18px;
 
-  
+.login-pass .p-password-input, #resetpass .p-password-input, #resetpassnew .p-password-input {
+  border: none;
+    border-radius: 8px;
+    width: 380px;
+    padding: 10px 10px 10px 12px;
+    height: 24px;
+    font-family: 'Nunito';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 27px;
 }
+
+.login-pass .p-password,  #resetpass .p-password, #resetpassnew .p-password{
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+
+.login-pass .p-password i svg, #resetpass .p-password i svg, #resetpassnew .p-password i svg{
+  color: black;
+    position: absolute;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+}
+
+.login-pass .p-password i, #resetpass .p-password i, #resetpassnew .p-password i {
+    position: absolute;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+}
+
 .logo-alta{
   position: absolute;
   width: 170px;
@@ -108,34 +131,7 @@ flex-grow: 0;
   max-width: 20px;
   color: #7E7D88;
 }
-span{
-  width: 133px;
-  height: 27px;
-  font-family: 'Nunito', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 27px;
-  color: black;
-  flex: none;
-  order: 0;
-  flex-grow: 0;
-}
-span{
-  width: 133px;
-  height: 27px;
-  font-family: 'Nunito', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 27px;
-  color: black;
-  flex: none;
-  order: 0;
-  flex-grow: 0;
-}
 .forgotPassword{
-
   height: 21px;
   font-family: 'Nunito', sans-serif;
   font-style: normal;
@@ -302,22 +298,9 @@ line-height: 33px;
 color: #282739;
 }
 #resetpass{
-  box-sizing: border-box;
-display: flex;
-flex-direction: row;
-justify-content: space-between;
-align-items: center;
-padding: 10px 16px 10px 12px;
-gap: 10px;
 position: absolute;
-width: 400px;
-height: 44px;
 left: 94px;
 top: 380px;
-background: #FFFFFF;
-border: 1.5px solid #D4D4D7;
-border-radius: 8px;
-font-size: 18px;
 }
 
 .ten3{
@@ -369,26 +352,10 @@ color: #37474F;
   color: #7E7D88;
 }
 #resetpassnew{
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 16px 10px 12px;
-  gap: 10px;
   position: absolute;
-  width: 400px;
-  height: 44px;
   left: 94px;
   top: 470px;
-  background: #FFFFFF;
-  border: 1.5px solid #D4D4D7;
-  border-radius: 8px;
-  font-size: 18px;
-  flex: none;
-  order: 1;
-  flex-grow: 0;
-  }
+  } 
 
 .reset, .resetnew{
   display: flex;
@@ -460,11 +427,31 @@ border: none;
 }
 .thongtincanhan{
   position: absolute;
+  display: flex;
 width: 1240px;
 height: 88px;
 left: 224px;
 top: 24px;
 }
+.breadcrumb{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#arrowRight {
+  margin-inline-end: 8px;
+  margin-inline-start: 8px;
+}
+.breadcrumb div:last-child .txt1 {
+  color: #FF7506;
+}
+.breadcrumb .txt1 {
+  color: #7E7D88;
+}
+.breadcrumb > div:last-child #arrowRight {
+  display: none;
+}
+
 .avt1{
   z-index: 2;
   position: absolute;
@@ -508,7 +495,6 @@ background: #FFFFFF;
 font-family: 'Nunito';
 font-style: normal;
 font-weight: 600;
-font-size: 16px;
 line-height: 24px;
 color: #7E7D88;
 flex: none;
@@ -738,13 +724,15 @@ flex-grow: 0;
 .thayavt{
   box-sizing: border-box;
   border-radius: 25px;
-position: absolute;
+position: relative;
+display: block;
 width: 45px;
 height: 45px;
 left: 195px;
 top: 246px;
 background: #FF7506;
 border: 2px solid #FFFFFF;
+cursor: pointer;
 }
 .btnthongbao{
   position: absolute;
@@ -780,4 +768,11 @@ color: white;
   left: 6px;
   top: 5.5px;
   color: #FF7506;;
+}
+.ant-menu-submenu-arrow {
+  display: none;
+}
+
+.menu .ant-menu-submenu-title {
+  padding-right: 0;
 }

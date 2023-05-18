@@ -52,7 +52,7 @@ export const Tablechitietchvu = () => {
         title: 'Trạng thái hoạt động',
         render: ({ trangthaihd }) => (
           <Text className='txt-trangthai' title={trangthaihd} weight={300}>
-            <Badge color={trangthaihd === "Đã hoàn thành" ? "#35C75A" : trangthaihd === "Đang thực hiện"? "#5490EB": trangthaihd === "Vắng"? "#6C7585": "#000000"} status={trangthaihd === "Đang thực hiện" ? "success": trangthaihd === "Vắng" ? "success": "error"}  />{""}{trangthaihd}
+            <Badge color={trangthaihd === "Đã hoàn thành" ? "#35C75A" : trangthaihd === "Đang thực hiện"? "#5490EB": trangthaihd === "Vắng"? "#6C7585": "#000000"} status={trangthaihd === "Đang thực hiện" ? "success": trangthaihd === "Vắng" ? "success": "error"}  />{" "}{trangthaihd}
           </Text>
             )},
        

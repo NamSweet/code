@@ -20,6 +20,8 @@ import Capnhat from './Pages/Thietbi/capnhat'
 import Themdichvu from './Pages/Dichvu/themdichvu'
 import Chitietdichvu from './Pages/Dichvu/chitietdichvu'
 import Capnhatdichvu from './Pages/Dichvu/capnhatdichvu'
+import Capsomoi from './Pages/Capso/capsomoi'
+import Chitietcapso from './Pages/Capso/chitietcapso'
 function App() {
   const { currentUser } = useContext(AuthContext)
   const navigate = useNavigate()
@@ -79,10 +81,12 @@ function App() {
           path='Dichvu' 
           element={<Dichvu/>}
           />
-          <Route 
-          path='/themdichvu' 
+           <Route 
+          path='/Dichvu/themdichvu' 
           element={<Themdichvu/>}
-          />
+          /> 
+          
+          
            <Route 
           path='/chitietdichvu' 
           element={<Chitietdichvu/>}
@@ -94,6 +98,14 @@ function App() {
           <Route 
           path='Capso' 
           element={<Capso/>}
+          />
+           <Route 
+          path='/capsomoi' 
+          element={<Capsomoi/>}
+          />
+           <Route 
+          path='/chitietcapso' 
+          element={<Chitietcapso/>}
           />
            <Route 
           path='Baocao' 

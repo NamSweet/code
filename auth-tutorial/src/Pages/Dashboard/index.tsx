@@ -32,11 +32,11 @@ function Dashboard() {
   useEffect(() => {
     console.log(selectedOption)
   }, [selectedOption])
-
+  const breadCrumbData = [ "Dashboard"]
   return(
     <>
       <MenuBar/>
-      <TopBar breadCrumb='Dashboard'/>
+      <TopBar breadCrumb={breadCrumbData}/>
       <span className='bieudocapso'>Biểu đồ cấp số</span>
     <div className='middashboard'>
      <div className='data1'>    

@@ -9,6 +9,7 @@ import { RiQuestionAnswerLine } from "react-icons/ri";
 import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../context/auth-context';
+import {BsThreeDotsVertical} from "react-icons/bs"
 
 const MenuBar = () => {
     const { signOut } = useContext(AuthContext);
@@ -22,6 +23,7 @@ const MenuBar = () => {
         onClick={(item) =>{
           navigate(item.key);
         }}
+        
          items={[
           {
             label: <span style={{color: "#7E7D88"}}>Dashboard</span>,
@@ -49,9 +51,23 @@ const MenuBar = () => {
             icon: <RiFileChartLine/>,
           },
           {
-            label:  <span style={{color: "#7E7D88"}}>Cài đặt hệ thống</span>,
+            label:  <span style={{color: "#7E7D88"}}>Cài đặt hệ thống <span style={{verticalAlign: -3.9}}><BsThreeDotsVertical/></span></span>,
             key:'/Caidathethong',
             icon: <TbSettings2/>,
+            children: [
+              {
+                label: <span style={{color: "#7E7D88"}} className=''>Quản lý vai trò</span>,
+                key:'/Vaitro',
+              },
+              {
+                label: <span style={{color: "#7E7D88"}} className=''>Quản lý tài khoản</span>,
+                key:'/Taikhoan',
+              },
+              {
+                label: <span style={{color: "#7E7D88"}} className=''>Nhật ký người dùng</span>,
+                key:'/Nhatky',
+              }
+            ]
           },
         ]}
         >

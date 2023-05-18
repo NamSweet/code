@@ -2,11 +2,11 @@ import MenuBar from '../../components/menu_bar';
 import TopBar from '../../components/top_bar';
 
 function Caidathethong() {
- 
+  const breadCrumbData = [ "Dịch vụ"]
   return(
     <div>
       <MenuBar/>
-      <TopBar breadCrumb='Dashboard'/>
+      <TopBar breadCrumb={breadCrumbData}/>
     </div>
   )
 }

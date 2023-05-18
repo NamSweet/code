@@ -31,6 +31,8 @@ border-radius: 8px;
     text-align: center;
     
 }
+
+
 .cc{
     display: flex;
 flex-direction: row;
@@ -38,18 +40,27 @@ gap: 20px;
 }
 .cc1{
     position: absolute;
-    left: 643px;
+    left: 704px;
     top: 196px;
     color: #535261;
     font-size: 10px;
 }
 .cctv{
     position: absolute;
-    left: 265px;
+    left: 328px;
     top: 43px;
     color: #535261;
     font-size: 10px;
 }
+.cccs{
+    position: absolute;
+    left: 640px;
+    top: 43px;
+    color: #535261;
+    font-size: 10px;
+    z-index: 2;
+}
+
 #nhapdulieu{
     box-sizing: border-box;
 padding: 10px 270px 10px 12px;
@@ -215,7 +226,6 @@ margin-right: 12px;
         justify-content: space-between;
         align-items: center;
         padding: 10px 12px;
-        gap: 24px;
         width: 160px;
         height: 44.15px;
         background: #FFFFFF;
@@ -258,11 +268,22 @@ margin-right: 12px;
         color: #535261;
 
     }
+    .tim{
+        position: absolute;
+        left: 1280px;
+        top: 198.5px;
+    }
     .timem{
             position: absolute;
-            left: 600px;
+            left: 645px;
             top: 38px; 
     }
+    .timso{
+        position: absolute;
+        left: 965px;
+        top: 38px; 
+}
+
     
     input[type="checkbox"] {
        
@@ -271,8 +292,30 @@ margin-right: 12px;
         border: 1.5px solid #4277FF;
       }
       input[type="checkbox"]:focus {
-        /* Đổi kiểu dáng khi checkbox được focus */
-        /* ví dụ: */
+     
         outline: 2px solid#4277FF;
       }
-      
+      .react-datepicker__input-container .react-datepicker__calendar-icon {
+        position: absolute;
+        padding: 0.5rem;
+        margin-top: 5px;
+        border-color: red;
+    
+    }
+    .react-datepicker__header:not(.react-datepicker__header--has-time-select) {
+        border-top-right-radius: 0.3rem;
+        background: white;
+    }
+    .react-datepicker__header .react-datepicker__current-month {
+        color: #FF7506; 
+    }
+    .react-datepicker__day-names .react-datepicker__day-name{
+        margin-bottom: -8px;
+        color:#FF9138;
+    }
+     
+    .react-datepicker__navigation--previous .datepicker__navigation-icon::before {
+        border-color: red;
+     
+    }
+ 

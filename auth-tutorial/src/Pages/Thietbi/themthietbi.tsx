@@ -9,14 +9,12 @@ function Themthietbi() {
   const changeBorderColor = () => {
     setSelectBorderColor('#FFAC6A');
   };
+  const breadCrumbData = [ "Thiết bị","Danh sách thiết bị","Thêm thiết bị"]
   return(
+    
     <div>
       <MenuBar/>
-      <TopBar breadCrumb='Thiết bị'/>
-      <RightOutlined className='icon1'/>
-      <span className='txtds1'>Danh sách thiết bị</span>
-      <RightOutlined className='icon23'/>
-      <span className='txtttb'>Thêm thiết bị</span>
+      <TopBar breadCrumb={breadCrumbData}/>
       <span className='bieudocapso'>Quản lý thiết bị</span>
       <div className='inputhemthietbi'>
       <span className='txtthongtin'>Thông tin thiết bị</span>

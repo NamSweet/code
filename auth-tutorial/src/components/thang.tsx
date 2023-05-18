@@ -23,11 +23,11 @@ function Thang() {
   useEffect(() => {
     console.log(selectedOption)
   }, [selectedOption])
-
+  const breadCrumbData = [ "Dashboard"]
   return(
     <div>
       <MenuBar/>
-      <TopBar breadCrumb='Dashboard'/>
+      <TopBar breadCrumb={breadCrumbData}/>
       <span className='bieudocapso'>Biểu đồ cấp số</span>
     <div className='middashboard'>
      <div className='data1'>    

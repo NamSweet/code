@@ -1,4 +1,4 @@
-import {  CaretRightOutlined, FormOutlined, RightOutlined, RollbackOutlined, SearchOutlined } from '@ant-design/icons';
+import {  CaretRightOutlined, FormOutlined, RollbackOutlined, SearchOutlined } from '@ant-design/icons';
 import MenuBar from '../../components/menu_bar';
 import TopBar from '../../components/top_bar';
 import { Link } from 'react-router-dom';
@@ -6,16 +6,11 @@ import Datepicker from '../../components/datepicker';
 import { Tablechitietchvu } from '../../components/tablechitietdichvu';
 
 function Chitietdichvu() {
- 
+  const breadCrumbData = [ "Dịch vụ","Danh sách dịch vụ","Chi tiết"]
   return(
     <div>
       <MenuBar/>
-      <TopBar breadCrumb='Thiết bị'/>
-      <RightOutlined className='icon1'/>
-      <Link to='/Dichvu'>
-      <span className='txtds1'>Danh sách dịch vụ</span>
-      </Link>
-      <RightOutlined className='icon23'/>
+      <TopBar breadCrumb={breadCrumbData}/>
       <span className='bieudocapso'>Quản lý dịch vụ</span>
         <div className='ttdv'>
             <div>
@@ -63,11 +58,12 @@ function Chitietdichvu() {
         <div className='bangchitietne'>
         <div className='area8'>
         <div>
-      <span className='txttb10'>Trạng thái hoạt động</span>
+      <span className='txttb10'>Trạng thái</span>
        <select   className="trangthaidichvu20">
-        <option className="" value="ngay">Tất cả</option>
-        <option className="" value="tuan">Kết nối</option>
-        <option className="" value="thang">Mất kết nối</option>
+        <option className="" value="">Tất cả</option>
+        <option className="" value="">Đã hoàn thành</option>
+        <option className="" value="">Đã thực hiện</option>
+        <option className="" value="">Vắng</option>
       </select>
       </div>
       <div><span className='txtchontime'>Chọn thời gian<div className='cc'><Datepicker/><Datepicker/></div></span>
@@ -79,7 +75,6 @@ function Chitietdichvu() {
         </input> 
       <SearchOutlined style={{color:'#FF7506'}} className='timem'/>
       </div>
-
         </div>
         <div className='area9'>
         <Tablechitietchvu/>

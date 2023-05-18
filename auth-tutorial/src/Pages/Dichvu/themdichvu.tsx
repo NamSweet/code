@@ -19,14 +19,11 @@ function Themdichvu() {
       [name]: checked,
     }));
   };
+  const breadCrumbData = [ "Dịch vụ","Danh sách dịch vụ","Thêm dịch vụ"]
   return(
     <div>
       <MenuBar/>
-      <TopBar breadCrumb='Thiết bị'/>
-      <RightOutlined className='icon1'/>
-      <span className='txtds1'>Danh sách dịch vụ</span>
-      <RightOutlined className='icon23'/>
-      <span className='txtttb'>Thêm dịch vụ</span>
+      <TopBar breadCrumb={breadCrumbData}/>
       <span className='bieudocapso'>Quản lý dịch vụ</span>
       <div className='inputhemthietbi'>
       <span className='txtthongtin'>Thông tin dịch vụ</span>

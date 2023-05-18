@@ -8,6 +8,7 @@ import{Icon} from 'react-icons-kit'
 import {eyeOff} from 'react-icons-kit/feather/eyeOff'
 import {eye} from 'react-icons-kit/feather/eye'
 import {notification} from 'react-icons-kit/icomoon/notification'
+import { Password } from 'primereact/password';
 
 const defaultFormFields = {
   email: '',
@@ -95,16 +96,7 @@ function Home()
           </div >
           <div className='login-pass'>
           <span className='ten2'>Mật khẩu*</span>
-         <span className='eye' onClick={handleToggle}><Icon icon={icon} size={20}/></span>
-          <input
-              id="pass"
-              type={type}
-              style={isFalse ? stylesTrue : stylesFalse}
-              name='password'
-              value={password}
-              onChange={handleChange}
-              required
-            />
+          <Password name='password' onChange={handleChange} toggleMask required/>
           </div>
           {isFalse ? (
             <p className='forgotPassword'><Icon className='icon2' icon={Notification} size={15}/> Sai mật khẩu hoặc tên đăng nhập</p>

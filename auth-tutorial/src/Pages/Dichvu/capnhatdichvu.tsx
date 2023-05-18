@@ -1,4 +1,3 @@
-import { RightOutlined } from '@ant-design/icons';
 import MenuBar from '../../components/menu_bar';
 import TopBar from '../../components/top_bar';
 import { Link } from 'react-router-dom';
@@ -19,16 +18,11 @@ function Capnhatdichvu() {
       [name]: checked,
     }));
   };
+  const breadCrumbData = [ "Dịch vụ","Danh sách dịch vụ","Chi tiết","Cập nhật"]
   return(
     <div>
       <MenuBar/>
-      <TopBar breadCrumb='Thiết bị'/>
-      <RightOutlined className='icon1'/>
-      <span className='txtds1'>Danh sách dịch vụ</span>
-      <RightOutlined className='icon23'/>
-      <span className='txtdvxam'>Chi tiết</span>
-      <RightOutlined className='icon24'/>
-      <span className='txtdvcncam'>Cập nhật</span>
+      <TopBar breadCrumb={breadCrumbData}/>
       <span className='bieudocapso'>Quản lý dịch vụ</span>
       <div className='inputhemthietbi'>
       <span className='txtthongtin'>Thông tin dịch vụ</span>

@@ -1,4 +1,4 @@
-import { RightOutlined } from '@ant-design/icons';
+
 import MenuBar from '../../components/menu_bar';
 import TopBar from '../../components/top_bar';
 
@@ -6,17 +6,11 @@ import { Link } from 'react-router-dom';
 import '../../css/thietbi.css'
 
 function Capnhat() {
-
+  const breadCrumbData = [ "Thiết bị","Danh sách thiết bị","Cập nhật thiết bị"]
   return(
     <div>
       <MenuBar/>
-      <TopBar breadCrumb='Thiết bị'/>
-      <RightOutlined className='icon1'/>
-      <Link to='/Thietbi'>
-      <span className='txtds1'>Danh sách thiết bị</span>
-      </Link>
-      <RightOutlined className='icon23'/>
-      <span className='txtttb'>Cập nhật</span>
+      <TopBar breadCrumb={breadCrumbData}/>
       <span className='bieudocapso'>Quản lý thiết bị</span>
       <div className='inputhemthietbi'>
       <span className='txtthongtin'>Thông tin thiết bị</span>
