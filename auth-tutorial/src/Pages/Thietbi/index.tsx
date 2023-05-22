@@ -1,8 +1,8 @@
-import { PlusSquareOutlined, RightOutlined, SearchOutlined } from '@ant-design/icons';
+import { PlusSquareOutlined, SearchOutlined } from '@ant-design/icons';
 import MenuBar from '../../components/menu_bar';
 import TopBar from '../../components/top_bar';
 import '../../css/thietbi.css'
-import {TableThietBi} from '../../components/table';
+import {TableThietBi} from '../../components/tablethietbi';
 import { Link } from 'react-router-dom';
 function Thietbi() {
   const breadCrumbData = [ "Thiết bị","Danh sách thiết bị"]

@@ -3,28 +3,36 @@ import { Text,} from '@mantine/core';
 import { Link } from 'react-router-dom';
 import { Badge } from 'antd';
 import { useEffect, useState } from 'react';
+import { getList } from '../firebase/crud';
 
 const PAGE_SIZES = [18, 9];
 
-const thietBi = [ { id: 'KIO_01', Ten: 'Kiosk', diachiip: "Hoạt động ", trangthaihd: 'Ngưng hoạt động',trangthaikn:'Mất kết nối',dichvusd:'Khám tim mạch, Khám mắt...',chitiet:'Chi tiết',capnhat:'Cập nhật' },
-  { id: 'KIO_01', Ten: 'Kiosk', diachiip: "Hoạt động ", trangthaihd: 'Hoạt động',trangthaikn:'Kết nối', dichvusd:'Khám tim mạch, Khám mắt...',chitiet:'Chi tiết',capnhat:'Cập nhật' },
-  { id: 'KIO_01', Ten: 'Kiosk', diachiip: "Hoạt động ", trangthaihd: 'Hoạt động',trangthaikn:'Mất kết nối',dichvusd:'Khám tim mạch, Khám mắt...',chitiet:'Chi tiết',capnhat:'Cập nhật'},
-  { id: 'KIO_01', Ten: 'Kiosk', diachiip: "Hoạt động ", trangthaihd: 'Ngưng hoạt động',trangthaikn:'Kết nối',dichvusd:'Khám tim mạch, Khám mắt...',chitiet:'Chi tiết',capnhat:'Cập nhật'},
-  { id: 'KIO_01', Ten: 'Kiosk', diachiip: "Hoạt động ", trangthaihd: 'Hoạt động',trangthaikn:'Mất kết nối',dichvusd:'Khám tim mạch, Khám mắt...',chitiet:'Chi tiết',capnhat:'Cập nhật' },
-  { id: 'KIO_01', Ten: 'Kiosk', diachiip: "Hoạt động ", trangthaihd: 'Ngưng hoạt động',trangthaikn:'Kết nối',dichvusd:'Khám tim mạch, Khám mắt...',chitiet:'Chi tiết',capnhat:'Cập nhật' },
-  { id: 'KIO_01', Ten: 'Kiosk', diachiip: "Hoạt động ", trangthaihd: 'Hoạt động',trangthaikn:'Kết nối',dichvusd:'Khám tim mạch, Khám mắt...',chitiet:'Chi tiết',capnhat:'Cập nhật' },
-  { id: 'KIO_01', Ten: 'Kiosk', diachiip: "Hoạt động ", trangthaihd: 'Hoạt động',trangthaikn:'Kết nối',dichvusd:'Khám tim mạch, Khám mắt...',chitiet:'Chi tiết',capnhat:'Cập nhật' },
-  { id: 'KIO_01', Ten: 'Kiosk', diachiip: "Hoạt động ", trangthaihd: 'Hoạt động',trangthaikn:'Kết nối',dichvusd:'Khám tim mạch, Khám mắt...',chitiet:'Chi tiết',capnhat:'Cập nhật' },
-  { id: 'KIO_01', Ten: 'Kiosk', diachiip: "Hoạt động ", trangthaihd: 'Hoạt động',trangthaikn:'Kết nối',dichvusd:'Khám tim mạch, Khám mắt...',chitiet:'Chi tiết',capnhat:'Cập nhật'},
-  { id: 'KIO_01', Ten: 'Kiosk', diachiip: "Hoạt động ", trangthaihd: 'Hoạt động',trangthaikn:'Kết nối',dichvusd:'Khám tim mạch, Khám mắt...',chitiet:'Chi tiết',capnhat:'Cập nhật' },
-  { id: 'KIO_01', Ten: 'Kiosk', diachiip: "Hoạt động ", trangthaihd: 'Hoạt động',trangthaikn:'Mất kết nối',dichvusd:'Khám tim mạch, Khám mắt...',chitiet:'Chi tiết',capnhat:'Cập nhật' },]
+interface DichVu {
+  maDichVu: string;
+  tenDichVu: string;
+  moTa: string;
+  trangThaiHD: string;
 
-
+}
 export const TableDichvu = () => {
+  const [DichVu, setDichVu] = useState<DichVu[]>([])
   const [pageSize, setPageSize] = useState(PAGE_SIZES[1]);
   const [page, setPage] = useState(1);
-  const [records, setRecords] = useState(thietBi.slice(0, pageSize));
+  const [records, setRecords] = useState(DichVu.slice(0, pageSize));
   
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const dichVuList = await getList<DichVu>({ collectionName: 'DichVu' });
+        setDichVu(dichVuList);
+      } catch (error) {
+        console.error('Error fetching data: ', error);
+      }
+    };
+    fetchData();
+  }, []);
+
+
   useEffect(() => {
     setPage(1);
   }, [pageSize]);
@@ -32,8 +40,9 @@ export const TableDichvu = () => {
   useEffect(() => {
     const from = (page - 1) * pageSize;
     const to = from + pageSize;
-    setRecords(thietBi.slice(from, to));
-  }, [page, pageSize]);
+    const updatedRecords = DichVu.slice(from, to);
+    setRecords(updatedRecords);
+  }, [page, pageSize, DichVu]);
 
   
   return (
@@ -45,44 +54,44 @@ export const TableDichvu = () => {
       records={records}
       columns={[
         {
-          accessor: 'id',
+          accessor: 'maDichVu',
           title: 'Mã dịch vụ',
           textAlignment: 'left',
         },
-        { accessor: 'Ten',
+        { accessor: 'tenDichVu',
         title:'Tên dịch vụ ' }
         ,
-        { accessor: 'diachiip',
+        { accessor: 'moTa',
         title: 'Mô tả', }
         ,
         { accessor: 'trangthaihd',
         title: 'Trạng thái hoạt động',
-        render: ({ trangthaihd }) => (
-          <Text className='txt-trangthai' title={trangthaihd} weight={300}>
-            <Badge color={trangthaihd === "Hoạt động" ? "#35C75A" : "#EC3740"} status={trangthaihd === "Hoạt động" ? "success" : "error"} />{" "}{trangthaihd}
+        render: ({trangThaiHD}) => (
+          <Text className='txt-trangthai' title={trangThaiHD} weight={300}>
+            <Badge color={trangThaiHD === "Hoạt động" ? "#35C75A" : "#EC3740"} status={trangThaiHD === "Hoạt động" ? "success" : "error"} />{" "}{trangThaiHD}
           </Text>
             )},
         { accessor: '',
-        render: ({ chitiet }) => (
-            <Link to={'/chitietdichvu'}>
+        render: ({maDichVu}) => (
+            <Link to={`/Chitietdichvu/${maDichVu}`}>
             <Text className='chitiet1'  color='#4277FF'>
-               {chitiet.slice(0,8)}
+            Chi tiết
             </Text>
             </Link>
           )
          },
          { accessor: '',
-          render: ({ capnhat }) => (
-            <Link to={'/capnhatdichvu'}>
+          render: ({ maDichVu }) => (
+            <Link to={`/Capnhatdichvu/${maDichVu}`}>
            <Text className='chitiet1' color='#4277FF' >
-          {capnhat.slice(0,8)}
+           Cập nhật
             </Text>
             </Link>
           )
           },
       ]}
       
-      totalRecords={thietBi.length}
+      totalRecords={DichVu.length}
       recordsPerPage={pageSize}
       page={page}
       onPageChange={(p) => setPage(p)}

@@ -15,23 +15,19 @@ function Baocao() {
   function convertToCSV(data: any) {
     const csvRows = [];
   
-    // Lấy danh sách các cột từ dữ liệu đầu vào
     const columns = Object.keys(data[0]);
-  
-    // Thêm tiêu đề cột vào dòng đầu tiên của tệp tin CSV
     csvRows.push(columns.join(','));
   
-    // Chuyển đổi dữ liệu thành dòng dữ liệu CSV
+    
     for (const row of data) {
       const values = columns.map(column => {
         const value = row[column];
-        // Xử lý trường hợp giá trị có dấu phẩy bằng cách đặt trong dấu nháy đơn
+        
         return typeof value === 'string' && value.includes(',') ? `"${value}"` : value;
       });
       csvRows.push(values.join(','));
     }
   
-    // Kết hợp các dòng thành một chuỗi CSV hoàn chỉnh
     return csvRows.join('\n');
   }
 
@@ -53,9 +49,9 @@ function Baocao() {
       <div>
         <TableBaocao/>
       </div>
-      <div style={{userSelect: "none", cursor: "pointer"}} className='thembaoCao txtthembaoCao' onClick={() => downloadCSV(csvContent, 'report.csv')}>
+      <div style={{userSelect: "none", cursor: "pointer"}} className='themthietbi' onClick={() => downloadCSV(csvContent, 'report.csv')}>
        <DownloadOutlined className='iconthem'/>
-        Tải về
+       <span className='txtthemthietbi'>Tải về</span> 
       </div>
     </div>
   )

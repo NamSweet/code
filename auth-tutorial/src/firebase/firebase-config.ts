@@ -1,3 +1,6 @@
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/firestore'; 
+
 const firebaseConfig = {
     apiKey: "AIzaSyBU1dcFGgTVk1Uycbi8mV2sdRdcHufVAQw",
     authDomain: "authentication-89f2c.firebaseapp.com",
@@ -15,3 +18,6 @@ const firebaseConfig = {
       return firebaseConfig;
     }
   }    
+  
+  firebase.initializeApp(firebaseConfig);
+  export const firestore = firebase.firestore();

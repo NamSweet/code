@@ -745,12 +745,56 @@ border-radius: 32px;
 border: none;
 z-index: 2;
 }
+.thongbao {
+  width: calc(360px - 24px);
+height: 48px;
+background: #FF9138;
+display: flex;
+align-items: center;
+padding-left: 24px;
+font-family: 'Nunito';
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 30px;
+border-top-left-radius: 10px;
+border-top-right-radius: 10px;
+}
+.popup-thongbao {
+  width: 360px;
+  height: 526px;
+  z-index: 99;
+  background-color: #FFFFFF;
+position: absolute;
+left: 620px;
+top: 65px;
+box-shadow: 2px 2px 15px rgba(70, 64, 67, 0.1);
+border-radius: 10px;
+}
+.popup-data {
+overflow-x: hidden;
+overflow-y: scroll;
+height: calc(526px - 48px);
+}
+.title-popup {
+  color: #BF5805;
+  font-family: 'Nunito';
+font-style: normal;
+font-weight: 700;
+font-size: 16px;
+line-height: 24px;
+}
+.time-popup {
+  font-family: 'Nunito';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+color: #535261;
+}
 .bell{
-  position: absolute;
   width: 20px;
   height: 20px;
-  left: 6px;
-  top: 5px;
   color:  #FFAC6A;
 }
 .camera{

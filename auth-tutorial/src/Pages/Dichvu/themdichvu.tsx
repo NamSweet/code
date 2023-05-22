@@ -1,10 +1,17 @@
-import { RightOutlined } from '@ant-design/icons';
 import MenuBar from '../../components/menu_bar';
 import TopBar from '../../components/top_bar';
 import { Link } from 'react-router-dom';
 import { ChangeEvent, useState } from 'react';
+import { message } from 'antd';
+import { add } from '../../firebase/crud';
 
 function Themdichvu() {
+
+  const [maDichVu, setMaDichVu] = useState("")
+  const [tenDichVu, setTenDichVu] = useState("")
+  const [moTa, setMoTa] = useState("")
+  
+
   const [checkboxes, setCheckboxes] = useState({
     checkbox1: false,
     checkbox2: false,
@@ -20,6 +27,16 @@ function Themdichvu() {
     }));
   };
   const breadCrumbData = [ "Dịch vụ","Danh sách dịch vụ","Thêm dịch vụ"]
+
+  const handleAdd = async () => {
+    try {
+     await add({data: {maDichVu: maDichVu, tenDichVu:tenDichVu,moTa:moTa}, collectionName: "DichVu", id: maDichVu})
+    message.success("Thanh cong")
+    } catch (error) {
+     message.error("That bai")
+    }
+   }
+
   return(
     <div>
       <MenuBar/>
@@ -31,13 +48,15 @@ function Themdichvu() {
       <div className='input'>
       <span className='ma'>Mã dịch vụ:  <span style={{color: "#FF4747",}}>*</span></span>
         <input id='nhapdulieu'
-        placeholder="201">
+        placeholder="Nhập mã dịch vụ"
+        onChange={(e)=> setMaDichVu(e.target.value)}>
         </input>
         </div> 
         <div className='input'>
       <span className='ma'>Tên dịch vụ : <span style={{color: "#FF4747",}}>*</span></span>
         <input id='nhapdulieu'
-        placeholder="Khám tim mạch">
+        placeholder="Nhập tên dịch vụ"
+        onChange={(e)=> setTenDichVu(e.target.value)}>
         </input>
         </div> 
       
@@ -46,7 +65,8 @@ function Themdichvu() {
       <div className='input'>
       <span className='ma'>Mô tả:</span>
         <input id='mota'
-        placeholder="Mô tả dịch vụ">
+        placeholder="Nhập mô tả"
+        onChange={(e)=> setMoTa(e.target.value)}>
         </input>
         </div>
         </div>
@@ -116,7 +136,7 @@ function Themdichvu() {
       <Link to='/Dichvu'>
         <button className='huythietbi'>Hủy bỏ</button>
         </Link>
-        <button className='thietbinew'>Thêm dịch vụ</button>
+        <button className='thietbinew' onClick={handleAdd}>Thêm dịch vụ</button>
       </div>
     </div>
     

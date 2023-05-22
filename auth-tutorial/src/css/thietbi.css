@@ -374,7 +374,6 @@ color: #7E7D88;
   }
 .txtthongtin{
     position: absolute;
-        width: 165px;
         height: 30px;
         left: 24px;
         top: 16px;
@@ -564,15 +563,7 @@ color: black;
     flex-wrap: wrap;
     gap: 24px;
 }
-.area11{
-    position: absolute;
-    left: 501px;
-    top: 24px;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    
-}
+
 #nhapdulieu1{
     box-sizing: border-box;
     padding: 10px 270px 10px 12px;

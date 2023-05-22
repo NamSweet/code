@@ -4,49 +4,45 @@ import { useContext, useEffect } from 'react'
 import { Routes , Route, useNavigate } from 'react-router-dom' 
 import { AuthContext } from './context/auth-context'
 import RequireAuth from './components/require-auth'
-import Home from './routes/home'
+import Home from './routes/login'
 import Profile from './routes/profile'
 import Dashboard from './Pages/Dashboard'
 import Thietbi from './Pages/Thietbi'
 import Dichvu from './Pages/Dichvu'
 import Capso from './Pages/Capso'
 import Baocao from './Pages/Baocao'
-import Caidathethong from './Pages/Caidathethong'
+import Caidathethong from './Pages/Caidathethong/vaitro'
 import Tuan from './components/tuan'
 import Thang from './components/thang'
 import Themthietbi from './Pages/Thietbi/themthietbi'
-import Chitiet from './Pages/Thietbi/chitiet'
-import Capnhat from './Pages/Thietbi/capnhat'
+import Chitiet from './Pages/Thietbi/chitietthietbi'
+import Capnhat from './Pages/Thietbi/capnhatthietbi'
 import Themdichvu from './Pages/Dichvu/themdichvu'
 import Chitietdichvu from './Pages/Dichvu/chitietdichvu'
 import Capnhatdichvu from './Pages/Dichvu/capnhatdichvu'
 import Capsomoi from './Pages/Capso/capsomoi'
 import Chitietcapso from './Pages/Capso/chitietcapso'
+import Vaitro from './Pages/Caidathethong/vaitro'
+import CapnhatVaitro from './Pages/Caidathethong/capnhatvaitro'
+import ThemVaitro from './Pages/Caidathethong/themvaitro'
+import Taikhoan from './Pages/Caidathethong/taikhoan'
+import ThemTaiKhoan from './Pages/Caidathethong/themtaikhoan'
+import CapnhatTaikhoan from './Pages/Caidathethong/capnhattaikhoan'
+import Nhatky from './Pages/Caidathethong/nhakyhoatdong'
 function App() {
-  const { currentUser } = useContext(AuthContext)
-  const navigate = useNavigate()
-  console.log('User:', !!currentUser);
-  useEffect(() => {
-    if (currentUser) {
-      navigate('/dashboard')
-    }
-  }, [currentUser])
-    
   return (
     <Routes>
       <Route index element={<Home />} />
       <Route path="profile" element={
-        <RequireAuth>
-          <Profile />
-        </RequireAuth>}
+          <Profile />}
       />
       <Route 
           path="forgotPassword" 
           element={<ForgotPassword />} 
         />
-        <Route 
+        <Route
           path="/themthietbi" 
-          element={<Themthietbi />} 
+          element={<Themthietbi/>} 
         />
          <Route 
           path="passwordReset" 
@@ -66,11 +62,11 @@ function App() {
           element={<Thang/>}
           />
           <Route 
-          path='/Chitietthietbi' 
+          path='/Chitietthietbi/:id' 
           element={<Chitiet/>}
           />
           <Route 
-          path='/Capnhatthietbi' 
+          path='/Capnhatthietbi/:id' 
           element={<Capnhat/>}
           />
            <Route 
@@ -88,11 +84,11 @@ function App() {
           
           
            <Route 
-          path='/chitietdichvu' 
+          path='/Chitietdichvu/:id' 
           element={<Chitietdichvu/>}
           />
            <Route 
-          path='/capnhatdichvu' 
+          path='/capnhatdichvu/:id' 
           element={<Capnhatdichvu/>}
           />
           <Route 
@@ -112,8 +108,32 @@ function App() {
           element={<Baocao/>}
           />
            <Route 
-          path='Caidathethong' 
-          element={<Caidathethong/>}
+          path='vaitro' 
+          element={<Vaitro/>}
+          />
+            <Route 
+          path='capnhatvaitro' 
+          element={<CapnhatVaitro/>}
+          />
+            <Route 
+          path='themvaitro' 
+          element={<ThemVaitro/>}
+          />
+            <Route 
+          path='Taikhoan' 
+          element={<Taikhoan/>}
+          />
+           <Route 
+          path='themtaikhoan' 
+          element={<ThemTaiKhoan/>}
+          />
+           <Route 
+          path='capnhattaikhoan' 
+          element={<CapnhatTaikhoan/>}
+          />
+            <Route 
+          path='nhatky' 
+          element={<Nhatky/>}
           />
     </Routes>
     

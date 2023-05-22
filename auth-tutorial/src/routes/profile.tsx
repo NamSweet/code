@@ -60,7 +60,6 @@ function Profile() {
               defaultValue="Kế toán"
             />
           </div >
-          
       </div>
       <div className='thongtincanhan'>
       <Link to='/profile'><img className='avt1' src="../src/img/avatar1.png"/></Link>

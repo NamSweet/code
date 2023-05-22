@@ -5,8 +5,6 @@ import { useNavigate } from 'react-router-dom'
 import '../css/App.css'
 import { Link } from 'react-router-dom';
 import{Icon} from 'react-icons-kit'
-import {eyeOff} from 'react-icons-kit/feather/eyeOff'
-import {eye} from 'react-icons-kit/feather/eye'
 import {notification} from 'react-icons-kit/icomoon/notification'
 import { Password } from 'primereact/password';
 
@@ -24,24 +22,14 @@ const stylesFalse = {
 
 function Home() 
 {
-  const[type, setType] = useState("passsword");
-  const[icon, setIcon] = useState(eyeOff);
+
   const[Notification] = useState(notification);
   const [isFalse,setIsFalse] = useState(false)
   const [formFields, setFormFields] = useState(defaultFormFields)
   const { email, password } = formFields
   const navigate = useNavigate()
 //
-   const handleToggle =()=>{
-    if(type == 'password'){
-      setIcon(eye);
-      setType('text');
-    }
-    else{
-      setIcon(eyeOff);
-      setType('password');
-    }
-   }
+
    //
   const resetFormFields = () => {
     return (
@@ -58,7 +46,7 @@ function Home()
       if (userCredential) {
         setIsFalse(false)
         resetFormFields()
-        navigate('/profile')
+        navigate('/dashboard  ')
       }
     } catch (error:any) {
       console.log('User Sign In Failed', error.message);

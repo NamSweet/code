@@ -1,9 +1,23 @@
 import MenuBar from '../../components/menu_bar';
 import TopBar from '../../components/top_bar';
-import { Link } from 'react-router-dom';
-import { ChangeEvent, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import { ChangeEvent, useEffect, useState } from 'react';
+import { edit, getData } from '../../firebase/crud';
+import { message } from 'antd';
+
+interface DichVu {
+  maDichVu: string;
+  tenDichVu: string;
+  moTa: string;
+}
 
 function Capnhatdichvu() {
+  const [maDichVu, setMaDichVu] = useState("")
+  const [tenDichVu, setTenDichVu] = useState("")
+  const [moTa, setMoTa] = useState("")
+
+
+
   const [checkboxes, setCheckboxes] = useState({
     checkbox1: false,
     checkbox2: false,
@@ -18,7 +32,45 @@ function Capnhatdichvu() {
       [name]: checked,
     }));
   };
+
+  const {id} = useParams()
   const breadCrumbData = [ "Dịch vụ","Danh sách dịch vụ","Chi tiết","Cập nhật"]
+  const [DichVu, setDichVu] = useState<DichVu | undefined>();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+       if(id) {
+        const data = await getData({ collectionName: 'DichVu',id:  id});
+        setDichVu(data as DichVu);
+      }
+    } catch (error) {
+      console.error('Error fetching data: ', error);
+    }
+  };
+  fetchData();
+  }, []);
+
+
+  useEffect(() => { 
+    if(DichVu) {
+      setMaDichVu(DichVu.maDichVu)
+      setTenDichVu(DichVu.tenDichVu)
+      setMoTa(DichVu.moTa)
+    }
+  },[DichVu])
+
+  const handleUpdate = async () => {
+    try {
+      if(id) {
+        await edit({data: {maDichVu: maDichVu, tenDichVu:tenDichVu,moTa:moTa}, collectionName: "DichVu", id: maDichVu})
+        message.success("Thanh cong")
+      }
+    } catch (error) {
+      message.error("That bai")
+    }
+  }
+  
   return(
     <div>
       <MenuBar/>
@@ -30,13 +82,17 @@ function Capnhatdichvu() {
       <div className='input'>
       <span className='ma'>Mã dịch vụ:  <span style={{color: "#FF4747",}}>*</span></span>
         <input id='nhapdulieu'
-        placeholder="201">
+        placeholder="Nhập mã dịch vụ"
+        value={maDichVu}
+        onChange={(e)=> setMaDichVu(e.target.value)}
+        readOnly>
         </input>
         </div> 
         <div className='input'>
       <span className='ma'>Tên dịch vụ : <span style={{color: "#FF4747",}}>*</span></span>
         <input id='nhapdulieu'
-        placeholder="Khám tim mạch">
+        placeholder="Nhập tên dịch vụ"
+        value={tenDichVu} onChange={(e)=> setTenDichVu(e.target.value)}>
         </input>
         </div> 
         </div>
@@ -44,7 +100,8 @@ function Capnhatdichvu() {
       <div className='input'>
       <span className='ma'>Mô tả:</span>
         <input id='mota'
-        placeholder="Mô tả dịch vụ">
+        placeholder="Mô tả dịch vụ"
+        value={moTa} onChange={(e)=> setMoTa(e.target.value)}>
         </input>
         </div>
         </div>
@@ -115,7 +172,7 @@ function Capnhatdichvu() {
       <Link to='/Dichvu'>
         <button className='huythietbi'>Hủy bỏ</button>
         </Link>
-        <button className='thietbinew'>Thêm dịch vụ</button>
+        <button className='thietbinew' onClick={handleUpdate}>Cập nhật</button>
       </div>
     </div>
     
