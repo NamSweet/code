@@ -3,27 +3,38 @@ import { Text,} from '@mantine/core';
 import { Link } from 'react-router-dom';
 import { Badge } from 'antd';
 import { useEffect, useState } from 'react';
+import { getList } from '../firebase/crud';
 
 const PAGE_SIZES = [18, 9];
-
-const thietBi = [ { stt: '2010001', Ten: 'Lê Huỳnh Ái Vân', tendichvu: "Khám tim mạch",thoigiancap:'14:35 - 07/11/2021',hansd:'14:35 - 12/11/2021',trangthaihd: 'Đang chờ',nguoncap:'Kiosk', chitiet:'Chi tiết'},
-  { stt: '2010002', Ten: 'Huỳnh Ái Vân', tendichvu: "Khám sản - Phụ Khoa",thoigiancap:'14:35 - 07/11/2021', hansd:'14:35 - 12/11/2021', trangthaihd: 'Đã sử dụng',nguoncap:'Kiosk',chitiet:'Chi tiết'},
-  { stt: '2010003', Ten: 'Lê Ái Vân', tendichvu: "Khám răng hàm mặt",thoigiancap:'14:35 - 07/11/2021',hansd:'14:35 - 12/11/2021', trangthaihd: 'Đang chờ',nguoncap:'Hệ thống',chitiet:'Chi tiết'},
-  { stt: '2010004', Ten: 'Nguyễn Ái Vân', tendichvu: "Khám tai mũi họng",thoigiancap:'14:35 - 07/11/2021',hansd:'14:35 - 12/11/2021', trangthaihd: 'Đã sử dụng',nguoncap:'Kiosk',chitiet:'Chi tiết'},
-  { stt: '2010005', Ten: 'Lê Ái Vân', tendichvu: "Khám hô hấp",thoigiancap:'14:35 - 07/11/2021',hansd:'14:35 - 12/11/2021', trangthaihd: 'Đang chờ',nguoncap:'Hệ thống',chitiet:'Chi tiết' },
-  { stt: '2010006', Ten: 'Nguyễn Ái Vân', tendichvu: "Khám tổng quát",thoigiancap:'14:35 - 07/11/2021',hansd:'14:35 - 12/11/2021', trangthaihd: 'Đã sử dụng',nguoncap:'Hệ thống',chitiet:'Chi tiết'},
-  { stt: '2010007', Ten: 'Trần Thị Ái Vân', tendichvu: "Khám tai mũi họng",thoigiancap:'14:35 - 07/11/2021',hansd:'14:35 - 12/11/2021', trangthaihd: 'Đang chờ',nguoncap:'Kiosk',chitiet:'Chi tiết'},
-  { stt: '2010008', Ten: 'Lê Huỳnh Nghĩa', tendichvu: "Khám tổng quát",thoigiancap:'14:35 - 07/11/2021',hansd:'14:35 - 12/11/2021', trangthaihd: 'Đã sử dụng',nguoncap:'Hệ thống',chitiet:'Chi tiết'},
-  { stt: '2010009', Ten: 'Lê Huỳnh Đức', tendichvu: "Khám tai mũi họng",thoigiancap:'14:35 - 07/11/2021',hansd:'14:35 - 12/11/2021', trangthaihd: 'Bỏ qua',nguoncap:'Hệ thống',chitiet:'Chi tiết'},
-  { stt: '20100010', Ten: 'Phạm Văn Mạnh', tendichvu: "Khám tổng quá",thoigiancap:'14:35 - 07/11/2021',hansd:'14:35 - 12/11/2021', trangthaihd: 'Bỏ qua',nguoncap:'Kiosk',chitiet:'Chi tiết'},
-  { stt: '20100011', Ten: 'Lê Thị Cẩm Tiên', tendichvu: "Khám tai mũi họng",thoigiancap:'14:35 - 07/11/2021',hansd:'14:35 - 12/11/2021', trangthaihd: 'Đã sử dụng',nguoncap:'Hệ thống',chitiet:'Chi tiết'},
-  { stt: '20100012', Ten: 'Lê Huỳnh Nghĩa', tendichvu: "Khám tai mũi họng",thoigiancap:'14:35 - 07/11/2021',hansd:'14:35 - 12/11/2021', trangthaihd: 'Đã sử dụng',nguoncap:'Kiosk',chitiet:'Chi tiết'},]
+interface CapSo {
+  stt: string;
+  tenKhachhang: string;
+  tenDichvu: string;
+  thoiGiancap: string;
+  hanSudung: string;
+  trangThaihoatdong:string;
+  nguonCap:string;
+}
 
 
 export const TableCapso = () => {
+  const [CapSo, setCapSo] = useState<CapSo[]>([])
   const [pageSize, setPageSize] = useState(PAGE_SIZES[1]);
   const [page, setPage] = useState(1);
-  const [records, setRecords] = useState(thietBi.slice(0, pageSize));
+  const [records, setRecords] = useState(CapSo.slice(0, pageSize));
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const capSoList = await getList<CapSo>({ collectionName: 'CapSo' });
+        setCapSo(capSoList);
+      } catch (error) {
+        console.error('Error fetching data: ', error);
+      }
+    };
+    fetchData();
+  }, []);
+
   
   useEffect(() => {
     setPage(1);
@@ -32,8 +43,9 @@ export const TableCapso = () => {
   useEffect(() => {
     const from = (page - 1) * pageSize;
     const to = from + pageSize;
-    setRecords(thietBi.slice(from, to));
-  }, [page, pageSize]);
+    const updatedRecords = CapSo.slice(from, to);
+    setRecords(updatedRecords);
+  }, [page, pageSize, CapSo]);
 
   
   return (
@@ -50,35 +62,58 @@ export const TableCapso = () => {
             title: 'STT',
           },
           { 
-            accessor: 'Ten',
+            accessor: 'tenKhachhang',
           title:'Tên khách hàng' 
         },
-          { accessor: 'tendichvu',
+          { accessor: 'tenDichvu',
           title: 'Tên dịch vụ ' 
         },
-      { accessor: 'thoigiancap',
-          title: 'Thời gian cấp', }
+      { accessor: 'thoiGiancap',
+          title: 'Thời gian cấp', 
+          render: ({thoiGiancap}) => (
+            <Text className='txt-trangthai'>
+              {new Date(thoiGiancap).toLocaleString("vi-VN", {
+              hour: "numeric",
+              minute: "numeric",
+              hour12: false, // Use 24-hour format
+              day: "2-digit",
+              month: "2-digit",
+              year: "numeric",
+            })}
+            </Text>
+          )     }
           ,
-          { accessor: 'hansd',
-          title: 'Hạn sử dụng', }
+          { accessor: 'hanSudung',
+          title: 'Hạn sử dụng', 
+          render: ({hanSudung}) => (
+            <Text className='txt-trangthai'>{new Date(hanSudung).toLocaleString("vi-VN", {
+              hour: "numeric",
+              minute: "numeric",
+              hour12: false, // Use 24-hour format
+              day: "2-digit",
+              month: "2-digit",
+              year: "numeric",
+            })}</Text>
+          )     
+        }
           ,
-          { accessor: 'trangthaihd',
+          { accessor: 'trangThaihoatdong',
           title: 'Trạng thái hoạt động',
-          render: ({ trangthaihd }) => (
-              <Text className='txt-trangthai' title={trangthaihd} weight={300}>
-              <Badge color={trangthaihd === "Đang chờ" ? "#4277FF" : trangthaihd === "Đã sử dụng"? "#535261": trangthaihd === "Bỏ qua"? "#E73F3F": "#000000"} status={trangthaihd === "Đã sử dụng" ? "success": trangthaihd === "Bỏ qua" ? "success": "error"}  />{" "}{trangthaihd}
+          render: ({ trangThaihoatdong }) => (
+              <Text className='txt-trangthai' title={trangThaihoatdong} weight={300}>
+              <Badge color={trangThaihoatdong === "Đang chờ" ? "#4277FF" : trangThaihoatdong === "Đã sử dụng"? "#535261": trangThaihoatdong === "Bỏ qua"? "#E73F3F": "#000000"} status={trangThaihoatdong === "Đã sử dụng" ? "success": trangThaihoatdong === "Bỏ qua" ? "success": "error"}  />{" "}{trangThaihoatdong}
             </Text>
               )},
   
-              { accessor: 'nguoncap',
+              { accessor: 'nguonCap',
               title: 'Nguồn cấp', 
               }
               ,
               { accessor: '',
-              render: ({ chitiet }) => (
-                  <Link to={'/chitietcapso'}>
+              render: ({stt}) => (
+                  <Link to={`/chitietcapso/${stt}`}>
                   <Text className='chitiet1'  color='#4277FF'>
-                  {chitiet.slice(0,8)}
+                  Chi tiết
                   </Text>
                   </Link>
               )
@@ -86,7 +121,7 @@ export const TableCapso = () => {
         ]
         }
       
-      totalRecords={thietBi.length}
+      totalRecords={CapSo.length}
       recordsPerPage={pageSize}
       page={page}
       onPageChange={(p) => setPage(p)}

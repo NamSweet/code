@@ -1,9 +1,6 @@
 import ForgotPassword from './routes/forgotPassword' 
 import PasswordReset from './routes/passwordReset'
-import { useContext, useEffect } from 'react'
-import { Routes , Route, useNavigate } from 'react-router-dom' 
-import { AuthContext } from './context/auth-context'
-import RequireAuth from './components/require-auth'
+import { Routes , Route } from 'react-router-dom' 
 import Home from './routes/login'
 import Profile from './routes/profile'
 import Dashboard from './Pages/Dashboard'
@@ -11,7 +8,6 @@ import Thietbi from './Pages/Thietbi'
 import Dichvu from './Pages/Dichvu'
 import Capso from './Pages/Capso'
 import Baocao from './Pages/Baocao'
-import Caidathethong from './Pages/Caidathethong/vaitro'
 import Tuan from './components/tuan'
 import Thang from './components/thang'
 import Themthietbi from './Pages/Thietbi/themthietbi'
@@ -100,7 +96,7 @@ function App() {
           element={<Capsomoi/>}
           />
            <Route 
-          path='/chitietcapso' 
+          path='/chitietcapso/:id' 
           element={<Chitietcapso/>}
           />
            <Route 

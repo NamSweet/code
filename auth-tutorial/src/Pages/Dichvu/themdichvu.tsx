@@ -11,6 +11,7 @@ function Themdichvu() {
   const [tenDichVu, setTenDichVu] = useState("")
   const [moTa, setMoTa] = useState("")
   
+  
 
   const [checkboxes, setCheckboxes] = useState({
     checkbox1: false,
@@ -30,7 +31,7 @@ function Themdichvu() {
 
   const handleAdd = async () => {
     try {
-     await add({data: {maDichVu: maDichVu, tenDichVu:tenDichVu,moTa:moTa}, collectionName: "DichVu", id: maDichVu})
+     await add({data: {maDichVu: maDichVu, tenDichVu:tenDichVu,moTa:moTa,trangThaiHD:"Hoạt động"}, collectionName: "DichVu", id: maDichVu})
     message.success("Thanh cong")
     } catch (error) {
      message.error("That bai")

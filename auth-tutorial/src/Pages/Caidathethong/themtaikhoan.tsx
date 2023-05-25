@@ -38,7 +38,7 @@ function ThemTaiKhoan() {
 
       </div>
       <div className='arearight'>
-      <span className='ma'>Tên đăng nhập:: <span style={{color: "#FF4747",}}>*</span></span>
+      <span className='ma'>Tên đăng nhập: <span style={{color: "#FF4747",}}>*</span></span>
       <input id='nhapvaitro1'
         placeholder="Nhập tên đăng nhập">
         </input>

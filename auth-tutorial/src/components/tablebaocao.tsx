@@ -3,32 +3,39 @@ import { Text,} from '@mantine/core';
 import { Badge, Checkbox, Dropdown, Menu } from 'antd';
 import { useEffect, useState } from 'react';
 import {TiArrowUnsorted} from "react-icons/ti";
+import { getList } from '../firebase/crud';
 
 const PAGE_SIZES = [18, 9];
-
-export const baoCao = [ { stt: '2010001', tendichvu: "Khám tim mạch",thoigiancap:'14:35 - 07/11/2021',trangthaihd: 'Đang chờ',nguoncap:'Kiosk'},
-  { stt: '2010002', tendichvu: "Khám sản - Phụ Khoa",thoigiancap:'14:35 - 07/11/2021', trangthaihd: 'Đã sử dụng',nguoncap:'Kiosk'},
-  { stt: '2010003', tendichvu: "Khám răng hàm mặt",thoigiancap:'14:35 - 07/11/2021',trangthaihd: 'Đang chờ',nguoncap:'Hệ thống'},
-  { stt: '2010004', tendichvu: "Khám tai mũi họng",thoigiancap:'14:35 - 07/11/2021',trangthaihd: 'Đã sử dụng',nguoncap:'Kiosk'},
-  { stt: '2010005', tendichvu: "Khám hô hấp",thoigiancap:'14:35 - 07/11/2021',trangthaihd: 'Đang chờ',nguoncap:'Hệ thống' },
-  { stt: '2010006', tendichvu: "Khám tổng quát",thoigiancap:'14:35 - 07/11/2021',trangthaihd: 'Đã sử dụng',nguoncap:'Hệ thống'},
-  { stt: '2010007', tendichvu: "Khám tai mũi họng",thoigiancap:'14:35 - 07/11/2021',trangthaihd: 'Đang chờ',nguoncap:'Kiosk'},
-  { stt: '2010008', tendichvu: "Khám tổng quát",thoigiancap:'14:35 - 07/11/2021',trangthaihd: 'Đã sử dụng',nguoncap:'Hệ thống'},
-  { stt: '2010009', tendichvu: "Khám tai mũi họng",thoigiancap:'14:35 - 07/11/2021',trangthaihd: 'Bỏ qua',nguoncap:'Hệ thống'},
-  { stt: '20100010', tendichvu: "Khám tổng quá",thoigiancap:'14:35 - 07/11/2021',trangthaihd: 'Bỏ qua',nguoncap:'Kiosk'},
-  { stt: '20100011', tendichvu: "Khám tai mũi họng",thoigiancap:'14:35 - 07/11/2021',trangthaihd: 'Đã sử dụng',nguoncap:'Hệ thống'},
-  { stt: '20100012', tendichvu: "Khám tai mũi họng",thoigiancap:'14:35 - 07/11/2021',trangthaihd: 'Đã sử dụng',nguoncap:'Kiosk'},]
-
-  type ColumnType = keyof typeof baoCao[0];
+interface BaoCao {
+  stt: string;
+  tenDichvu: string;
+  thoiGiancap: string;
+  trangThaihoatdong:string;
+  nguonCap:string;
+}
 
 export const TableBaocao = () => {
+  const [baoCao, setBaoCao] = useState<BaoCao[]>([])
   const [pageSize, setPageSize] = useState(PAGE_SIZES[1]);
   const [page, setPage] = useState(1);
   const [records, setRecords] = useState(baoCao.slice(0, pageSize));
   const [initialRecords] = useState(baoCao); 
   const [filters, setFilters] = useState<Record<ColumnType, string[] | undefined>>({} as Record<ColumnType, string[] | undefined>);
 
-  
+  type ColumnType = keyof typeof baoCao[0];
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const baoCaoList = await getList<BaoCao>({ collectionName: 'CapSo' });
+        setBaoCao(baoCaoList);
+      } catch (error) {
+        console.error('Error fetching data: ', error);
+      }
+    };
+    fetchData();
+  }, []);
+
   useEffect(() => {
     setPage(1);
   }, [pageSize]);
@@ -130,48 +137,60 @@ export const TableBaocao = () => {
               
              ) ,
           },
-          { accessor: 'tendichvu',
+          { accessor: 'tenDichvu',
           title: (
            <div className='table-title'>
            <Text>Tên dịch vụ</Text> 
-          <Dropdown overlayStyle={{maxHeight: 198, width: 226}} overlay={renderDropdown('tendichvu')}>
+          <Dropdown overlayStyle={{maxHeight: 198, width: 226}} overlay={renderDropdown('tenDichvu')}>
           <div style={{fontSize: 12, cursor: "pointer"}}><TiArrowUnsorted/></div>
           </Dropdown>
            </div>
            
           ) 
         },
-      { accessor: 'thoigiancap',
+      { accessor: 'thoiGiancap',
           title: (
             <div className='table-title'>
             <Text>Thời gian cấp</Text> 
-            <Dropdown overlay={renderDropdown('thoigiancap')}>
-             <div style={{fontSize: 12, cursor: "pointer"}}><TiArrowUnsorted/></div>
+            <Dropdown overlay={renderDropdown('thoiGiancap')}>
+             <div style={{fontSize: 12, cursor: "pointer"}}><TiArrowUnsorted/></div>  
              </Dropdown>
             </div>
-           )}
+           ),
+           render: ({thoiGiancap}) => (
+            <Text className='txt-trangthai'>  
+              {new Date(thoiGiancap).toLocaleString("vi-VN", {
+              hour: "numeric",
+              minute: "numeric",
+              hour12: false, // Use 24-hour format
+              day: "2-digit",
+              month: "2-digit",
+              year: "numeric",
+            })}
+            </Text>
+          ) }
           ,
-          { accessor: 'trangthaihd',
+          { accessor: 'trangThaihoatdong',
           title:(
             <div className='table-title'>
             <Text>Tình trạng</Text> 
-            <Dropdown overlay={renderDropdown('trangthaihd')}>
+            <Dropdown overlay={renderDropdown('trangThaihoatdong')}>
              <div style={{fontSize: 12, cursor: "pointer"}}><TiArrowUnsorted/></div>
              </Dropdown>
             </div>
             
            ) ,
-          render: ({ trangthaihd }) => (
-              <Text className='txt-trangthai' title={trangthaihd} weight={300}>
-              <Badge color={trangthaihd === "Đang chờ" ? "#4277FF" : trangthaihd === "Đã sử dụng"? "#535261": trangthaihd === "Bỏ qua"? "#E73F3F": "#000000"} status={trangthaihd === "Đã sử dụng" ? "success": trangthaihd === "Bỏ qua" ? "success": "error"}  />{" "}{trangthaihd}
+          render: ({ trangThaihoatdong }) => (
+              <Text className='txt-trangthai' title={trangThaihoatdong} weight={300}>
+              <Badge color={trangThaihoatdong === "Đang chờ" ? "#4277FF" : trangThaihoatdong === "Đã sử dụng"? "#535261": trangThaihoatdong === "Bỏ qua"? "#E73F3F": "#000000"} status={trangThaihoatdong === "Đã sử dụng" ? "success": trangThaihoatdong === "Bỏ qua" ? "success": "error"}  />{" "}{trangThaihoatdong}
             </Text>
               )},
   
-              { accessor: 'nguoncap',
+              { accessor: 'nguonCap',
               title:(
                 <div className='table-title'>
                 <Text>Nguồn cấp</Text> 
-                <Dropdown overlay={renderDropdown("nguoncap")}>
+                <Dropdown overlay={renderDropdown("nguonCap")}>
              <div style={{fontSize: 12, cursor: "pointer"}}><TiArrowUnsorted/></div>
              </Dropdown>
                 </div>

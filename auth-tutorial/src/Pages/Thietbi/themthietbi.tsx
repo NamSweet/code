@@ -22,7 +22,7 @@ function Themthietbi() {
 
 const handleAdd = async () => {
  try {
-  await add({data: {maThietBi: maThietBi, tenThietbi: tenThietbi, diaChiIP: diaChiIP, dichVusudung: dichVusudung,loaiThietbi: loaiThietbi,tenDangnhap:tenDangnhap,matKhau:matKhau }, collectionName: "ThietBi", id: maThietBi})
+  await add({data: {maThietBi: maThietBi, tenThietbi: tenThietbi, diaChiIP: diaChiIP, dichVusudung: dichVusudung,loaiThietbi: loaiThietbi,tenDangnhap:tenDangnhap,matKhau:matKhau,trangThaiHD:"Hoạt động",trangThaiKN:"Kết nối" }, collectionName: "ThietBi", id: maThietBi})
  message.success("Thanh cong")
  } catch (error) {
   message.error("That bai")
