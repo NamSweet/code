@@ -124,7 +124,7 @@ function App() {
           element={<ThemTaiKhoan/>}
           />
            <Route 
-          path='capnhattaikhoan' 
+          path='capnhattaikhoan/:id' 
           element={<CapnhatTaikhoan/>}
           />
             <Route 

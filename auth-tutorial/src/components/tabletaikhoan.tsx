@@ -3,35 +3,50 @@ import {  Text} from '@mantine/core';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { Badge } from 'antd';
+import { getList } from '../firebase/crud';
 
 const PAGE_SIZES = [18, 9];
-
-const thietBi = [ { tendangnhap: 'tuyetnguyen@12', hoten: 'Nguyen Văn A', sdt: "0919256712",email:'tuyetnguyen123@gmail.com',vaitro:"Kế toán",trangthaihd:"Hoạt động",capnhat:'Cập nhật'},
-                  { tendangnhap: 'tuyetnguyen@12', hoten: 'Nguyen Văn B', sdt: "0919256712",email:'tuyetnguyen123@gmail.com',vaitro:"Kế toán",trangthaihd:"Hoạt động",capnhat:'Cập nhật'},
-                  { tendangnhap: 'tuyetnguyen@14', hoten: 'Nguyen Văn C', sdt: "0919256712",email:'tuyetnguyen123@gmail.com',vaitro:"Kế toán",trangthaihd:"Hoạt động",capnhat:'Cập nhật'},
-                  { tendangnhap: 'tuyetnguyen@16', hoten: 'Nguyen Văn D', sdt: "0919256712",email:'tuyetnguyen123@gmail.com',vaitro:"Kế toán",trangthaihd:"Ngưng hoạt động",capnhat:'Cập nhật'},
-                  { tendangnhap: 'tuyetnguyen@18', hoten: 'Nguyen Văn E', sdt: "0919256712",email:'tuyetnguyen123@gmail.com',vaitro:"Kế toán",trangthaihd:"Hoạt động",capnhat:'Cập nhật'},
-                  { tendangnhap: 'tuyetnguyen@20', hoten: 'Nguyen Văn F', sdt: "0919256712",email:'tuyetnguyen123@gmail.com',vaitro:"Kế toán",trangthaihd:"Hoạt động",capnhat:'Cập nhật'},
-                  { tendangnhap: 'tuyetnguyen@20', hoten: 'Nguyen Văn G', sdt: "0919256712",email:'tuyetnguyen123@gmail.com',vaitro:"Kế toán",trangthaihd:"Hoạt động",capnhat:'Cập nhật'},
-                  { tendangnhap: 'tuyetnguyen@20', hoten: 'Nguyen Văn H', sdt: "0919256712",email:'tuyetnguyen123@gmail.com',vaitro:"Kế toán",trangthaihd:"Ngưng hoạt động",capnhat:'Cập nhật'},
-                  { tendangnhap: 'tuyetnguyen@20', hoten: 'Nguyen Văn I', sdt: "0919256712",email:'tuyetnguyen123@gmail.com',vaitro:"Kế toán",trangthaihd:"Hoạt động",capnhat:'Cập nhật'},]
-
+interface TaiKhoan {
+  tenDangnhap: string;
+  hoTen: string;
+  sdt:string;
+  Email: string;
+  vaiTro: string;
+  tinhTrang: string;
+ 
+}
 
 export const TableTaikhoan = () => {
+  const [TaiKhoan, setTaiKhoan] = useState<TaiKhoan[]>([])
   const [pageSize, setPageSize] = useState(PAGE_SIZES[1]);
   const [page, setPage] = useState(1);
-  const [records, setRecords] = useState(thietBi.slice(0, pageSize));
+  const [records, setRecords] = useState(TaiKhoan.slice(0, pageSize));
   
   useEffect(() => {
     setPage(1);
   }, [pageSize]);
 
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const taiKhoanList = await getList<TaiKhoan>({ collectionName: 'TaiKhoan' });
+        setTaiKhoan(taiKhoanList);
+      } catch (error) {
+        console.error('Error fetching data: ', error);
+      }
+    };
+    fetchData();
+  }, []);
+
+
   useEffect(() => {
     const from = (page - 1) * pageSize;
     const to = from + pageSize;
-    setRecords(thietBi.slice(from, to));
-  }, [page, pageSize]);
-
+    const updatedRecords = TaiKhoan.slice(from, to);
+    setRecords(updatedRecords);
+  }, [page, pageSize, TaiKhoan]);
+ 
   
   return (
     <DataTable className='tbl1'
@@ -42,41 +57,41 @@ export const TableTaikhoan = () => {
       records={records}
       columns={[
         {
-          accessor: 'tendangnhap',
+          accessor: 'tenDangnhap',
           title: 'Tên đăng nhập',
           textAlignment: 'left',
         },
-        { accessor: 'hoten',
+        { accessor: 'hoTen',
         title:'Họ tên' }
         ,
         { accessor: 'sdt',
         title: 'Số điện thoại', }
         ,
-        { accessor: 'email',
+        { accessor: 'Email',
         title: 'Email', }
         ,
-        { accessor: 'vaitro',
+        { accessor: 'vaiTro',
         title: 'Vai trò', }
         ,
-        { accessor: 'trangthaihd',
+        { accessor: 'tinhTrang',
         title: 'Trạng thái hoạt động',
-        render: ({ trangthaihd }) => (
-          <Text className='txt-trangthai' title={trangthaihd} weight={300}>
-            <Badge color={trangthaihd === "Hoạt động" ? "#35C75A" : "#EC3740"} status={trangthaihd === "Ngưng hoạt động" ? "success" : "error"} />{" "}{trangthaihd}
+        render: ({ tinhTrang }) => (
+          <Text className='txt-trangthai' title={tinhTrang} weight={300}>
+            <Badge color={tinhTrang === "Hoạt động" ? "#35C75A" : "#EC3740"} status={tinhTrang === "Ngưng hoạt động" ? "success" : "error"} />{" "}{tinhTrang}
           </Text>
             )},
          { accessor: '',
-          render: ({ capnhat }) => (
-            <Link to={'/capnhattaikhoan'}>
+          render: ({ tenDangnhap }) => (
+            <Link to={`/capnhattaikhoan/${tenDangnhap}`}>
            <Text className='chitiet1' color='#4277FF' >
-          {capnhat.slice(0,8)}
+           Cập nhật
             </Text>
             </Link>
           )
           },
       ]}
       
-      totalRecords={thietBi.length}
+      totalRecords={TaiKhoan.length}
       recordsPerPage={pageSize}
       page={page}
       onPageChange={(p) => setPage(p)}
